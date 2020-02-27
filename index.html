@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TilingPuzzle</title>
+</head>
+<body>
+<label>MeshLength<input id="MeshLength" value="6"/></label>
+<label>NextRatio<input id="NextRatio" value="0.5"/></label>
+<label>CircleRatio<input id="CircleRatio" value="0.1"/></label>
+<br/>
+<label>DeepTotal<input id="DeepTotal" value="5"/></label>
+<label>RoomTotal<input id="RoomTotal" value="10"/></label>
+<input type="file" id="tileFile">
+<button onclick="onClick()">Generate</button>
+<br/>
+<canvas width="800" height="800" style="border:1px solid black;" id="screen"></canvas>
+<canvas width="400" height="800" style="border:1px solid black;" id="screen"></canvas>
+<script src='src/main.js'></script>
+</body>
+</html>
