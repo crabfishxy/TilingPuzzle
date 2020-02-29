@@ -38,14 +38,13 @@ export default class TilingPuzzle{
                     break;
                 }
             }
-            let c = this.nextNChar('a', index);
             for(let i = this.tiles.length; i < row.length; i ++){
                 if(row[i] == 1){
                     let position = i-this.tiles.length;
                     for(let x = 0; x < this.coverArray.boardidx.length; x++){
                         for(let y = 0; y < this.coverArray.boardidx[0].length; y ++){
                             if(this.coverArray.boardidx[x][y] == position){
-                                res[x][y] = c;
+                                res[x][y] = index;
                             }
                         }
                     }
