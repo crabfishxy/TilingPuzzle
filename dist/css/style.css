@@ -7,8 +7,8 @@ html, body {
   }
   
   body {
-    background: #f9f8f1 url('../img/game-bg.png') center center;
-    font-family: 'Chathura', sans-serif;
+    background: #f9f8f1 url('../image/game-bg.png') center center;
+    font-family: "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     color: #212121;
     font-size: 16px;
     position: relative;
@@ -181,7 +181,7 @@ html, body {
     #game table {
       width: 100%;
       margin: 0 auto;
-      border-spacing: 3px !important;
+      border-spacing: 2px !important;
     }
       #game table td {
         width: auto;

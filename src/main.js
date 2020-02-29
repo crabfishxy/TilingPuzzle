@@ -10,20 +10,40 @@ solveBtn.addEventListener("click", function(){
     let total = document.getElementById("total");
     let cur = document.getElementById("cur");
     total.innerHTML = tilingPuzzle.result.length;
-    cur.innerHTML = 0;
+    cur.innerHTML = 1;
     drawSolution(tilingPuzzle.result[0]);
 });
 const nextBtn = document.getElementById("next");
 nextBtn.addEventListener("click", function(){
     let cur = document.getElementById("cur");
-    cur.innerHTML = Number(cur.innerHTML)+1;
-    drawSolution(tilingPuzzle.result[Number(cur.innerHTML)]);
+    if(Number(cur.innerHTML) < tilingPuzzle.result.length){
+        cur.innerHTML = Number(cur.innerHTML)+1;
+        drawSolution(tilingPuzzle.result[Number(cur.innerHTML-1)]);
+    }
+
 });
 const prevBtn = document.getElementById("prev");
 prevBtn.addEventListener("click", function(){
     let cur = document.getElementById("cur");
-    cur.innerHTML = Number(cur.innerHTML)-1;
-    drawSolution(tilingPuzzle.result[Number(cur.innerHTML)]);
+    if(Number(cur.innerHTML) > 1){
+        cur.innerHTML = Number(cur.innerHTML)-1;
+        drawSolution(tilingPuzzle.result[Number(cur.innerHTML-1)]);
+    }
+});
+const curSolution = document.getElementById("cur");
+curSolution.addEventListener("DOMNodeInserted", function(){
+    console.log("in listener")
+    let cur = document.getElementById("cur");
+    if(cur.innerHTML == 1){
+        prevBtn.setAttribute("class", "bttn-bordered bttn-md bttn-primary");
+    }else if(tilingPuzzle.result.length != 1){
+        prevBtn.setAttribute("class", "bttn-simple bttn-md bttn-primary");
+    }
+    if(cur.innerHTML == tilingPuzzle.result.length){
+        nextBtn.setAttribute("class", "bttn-bordered bttn-md bttn-primary");
+    }else if(tilingPuzzle.result.length != 1){
+        nextBtn.setAttribute("class", "bttn-simple bttn-md bttn-primary");
+    }
 });
 
 var fileString = "";

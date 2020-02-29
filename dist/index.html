@@ -13,25 +13,28 @@
     <div id="page" data-size="10">
         <div class="wraps">
           <div class="wrap-score">
-            Puzzle: <span id="score">0</span>
-          </div>
-          <div class="wrap-navs">
             <input type="file" id="tileFile" style="display: none;"/>
-            <label for="tileFile" id="LblBrowse">
+            <label for="tileFile" id="LblBrowse" class="bttn-fill bttn-md bttn-primary">
                 Browse
             </label>
-            <button id="solve" type="button" class="btn btn-primary">Solve</button>
+          </div>
+          <div class="wrap-navs">
+            <button id="solve" type="button" class="bttn-fill bttn-md bttn-success">Solve</button>
           </div>
           <div class="wrap-game">
             <div id="game">
-                <table><tbody><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td bgcolor="#FF8A65" data-combo="1" data-digit="10" data-status="1"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td><div></div></td><td bgcolor="#A1887F" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td bgcolor="#81D4FA" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td bgcolor="#AED581" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td bgcolor="#FFE082" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr></tbody></table>
+                <table><tbody><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td ><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr></tbody></table>
             </div>
           </div>
           <div class="wrap-step">
             solution: <span id="cur">0</span> / <b id='total'>0</b>
           </div>
-          <button id="prev">Prev</button>
-          <button id="next">Next</button>
+          <div class="wrap-score">
+            <button id="prev" class="bttn-bordered bttn-md bttn-primary">Prev</button>
+          </div>
+          <div class="wrap-navs">
+              <button id="next" class="bttn-bordered bttn-md bttn-primary">Next</button>
+          </div>
         </div>
         <div class="copyright">developed by <a href="https://github.com/crabfishxy">Yu Xie</a></div>
       </div>
