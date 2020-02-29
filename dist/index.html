@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>TilingPuzzle</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bttn.min.css"/>
 </head>
 <body>
     <h1>Tiling Puzzle</h1>
@@ -19,21 +20,24 @@
             <label for="tileFile" id="LblBrowse">
                 Browse
             </label>
+            <button id="solve" type="button" class="btn btn-primary">Solve</button>
           </div>
           <div class="wrap-game">
             <div id="game">
                 <table><tbody><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td bgcolor="#FF8A65" data-combo="1" data-digit="10" data-status="1"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div></td><td><div></div><td><div></div><td><div></div><td><div></div></td><td bgcolor="#A1887F" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td bgcolor="#81D4FA" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td bgcolor="#AED581" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr><tr><td><div></div><td><div></div><td><div></div><td><div></div></td><td><div></div></td><td bgcolor="#FFE082" data-combo="1" data-digit="10" data-status="0"><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td><td><div></div></td></tr></tbody></table>
             </div>
-            <div id="message"></div>
           </div>
           <div class="wrap-step">
-            step: <span id="step">0</span> / <b>400</b>
+            solution: <span id="cur">0</span> / <b id='total'>0</b>
           </div>
+          <button id="prev">Prev</button>
+          <button id="next">Next</button>
         </div>
         <div class="copyright">developed by <a href="https://github.com/crabfishxy">Yu Xie</a></div>
       </div>
-    <canvas width="800" height="800" style="border:1px solid black;" id="board"></canvas>
-    <canvas width="400" height="800" style="border:1px solid black;" id="tiles"></canvas>
 <script src='./scripts.js'></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

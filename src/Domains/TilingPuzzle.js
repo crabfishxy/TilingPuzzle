@@ -11,7 +11,7 @@ export default class TilingPuzzle{
         this.level = 0;
         this.endTime = 0;
         this.firstTime = true;
-        this.solve(this.linkArray, true);
+        //this.solve(this.linkArray, true);
     }
 
     generateSolution(solution){

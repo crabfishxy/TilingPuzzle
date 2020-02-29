@@ -65,10 +65,10 @@ html, body {
     position: relative;
   }
   #page[data-size="10"] {
-    width: 738px;
+    width: 660px;
   }
   #page[data-size="9"] {
-    width: 668px;
+    width: 630px;
   }
   #page[data-size="8"] {
     width: 600px;
