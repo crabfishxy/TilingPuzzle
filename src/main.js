@@ -6,12 +6,16 @@ const inputFile = document.getElementById("tileFile");
 inputFile.addEventListener("change", handleFile, false);
 const solveBtn = document.getElementById("solve");
 solveBtn.addEventListener("click", function(){
+    document.getElementById("game").setAttribute("style", "display: none");
+    document.getElementById("loader").setAttribute("style", "display: block")
     tilingPuzzle.solve(tilingPuzzle.linkArray, true);
     let total = document.getElementById("total");
     let cur = document.getElementById("cur");
     total.innerHTML = tilingPuzzle.result.length;
     cur.innerHTML = 1;
     drawSolution(tilingPuzzle.result[0]);
+    document.getElementById("game").style.display = "block";
+    document.getElementById("loader").style.display = "none";
 });
 const nextBtn = document.getElementById("next");
 nextBtn.addEventListener("click", function(){
@@ -49,6 +53,7 @@ curSolution.addEventListener("DOMNodeInserted", function(){
 var fileString = "";
 var fileContent = [];
 var tiles = [];
+var board = null;
 var result = null;
 let tilingPuzzle = null;
 var color = ["#FFE082", "#FF8A65", "#AED581", "#81D4FA", "#A1887F"];
@@ -61,11 +66,12 @@ function handleFile(){
         fileString = event.target.result;
         let readFile = new ReadFile(fileString);
         tiles = readFile.getTiles();
-        let board = readFile.getBoard();
+        board = readFile.getBoard();
         let coverArray = new CoverArray(tiles, board, true, true);
         let linkArray = new LinkArray(coverArray);
         tilingPuzzle = new TilingPuzzle(readFile, coverArray, linkArray);
-        drawBoard(board)
+        drawBoard(board);
+        drawTiles(tiles);
         result = tilingPuzzle.result;
         console.log(result);
     }
@@ -110,9 +116,7 @@ function drawBoard(board){
     boardTable.append(table);
 }
 
-function drawSolution(solution){
-    console.log("Solution:");
-    console.log(solution);
+function drawTiles(tiles){
     var randomColor = require('randomcolor'); // import the script
     var colorNum = tiles.length;
     var oldLength = color.length
@@ -127,6 +131,78 @@ function drawSolution(solution){
         }
         shuffle(color);            
     }
+    let tableColNum = board.data[0].length * 2;
+    let tableRowNum = 0;
+    let pos = [];
+    let row = 0;
+    let col = 0;
+    let maxH = 1;
+    for(let i = 0; i < tiles.length; i ++){
+        let tile = tiles[i];
+        if(col + tile.data[0].length > tableColNum){
+            i --;
+            col = 0;
+            row = row + maxH + 1;
+            maxH = 1;
+            continue;
+        }
+        pos.push([row, col]);
+        col = col + tile.data[0].length + 1;
+        if(tile.data.length > maxH)maxH = tile.data.length;
+    }
+    tableRowNum = row + maxH;
+    let tileMatrix = [];
+    for(let i = 0; i < tableRowNum; i ++){
+        let newRow = new Array(tableColNum);
+        newRow.fill(' ');
+        tileMatrix.push(newRow);
+    }
+    for(let i = 0; i < pos.length; i ++){
+        let x = pos[i][0];
+        let y = pos[i][1];
+        for(let m = 0; m < tiles[i].data.length; m++){
+            for(let n = 0; n < tiles[i].data[0].length; n ++){
+                if(tiles[i].data[m][n] != ' '){
+                    tileMatrix[x+m][y+n] = i;
+                }
+            }
+        }
+    }
+    let tileTable = document.getElementById("tiles");
+    tileTable.innerHTML = '';
+    let table = document.createElement("table");
+    let tbody = document.createElement("tbody");
+    for(let i = 0; i < tileMatrix.length; i ++){
+        let row = document.createElement("tr");
+        for(let j = 0; j < tileMatrix[0].length; j ++){
+            if(tileMatrix[i][j] === ' '){
+                console.log(tileMatrix[i][j])
+                let block = document.createElement("td");
+                block.append(document.createElement("span"));
+                row.append(block);
+            }else{
+                console.log(tileMatrix[i][j]);
+                let block = document.createElement("td");
+                block.append(document.createElement("div"));
+                block.setAttribute("border", "1");
+                block.setAttribute("bgcolor", color[tileMatrix[i][j]])
+                block.setAttribute("data-combo", "10");
+                block.setAttribute("data-status", "1");
+                row.append(block);
+            }
+        }
+        tbody.append(row);
+    }
+    table.append(tbody);
+    tileTable.append(table);
+    console.log("position");
+    console.log(tileMatrix);
+}
+
+function drawSolution(solution){
+    console.log("Solution:");
+    console.log(solution);
+
     let boardTable = document.getElementById("game");
     boardTable.innerHTML = '';
     let table = document.createElement("table");
