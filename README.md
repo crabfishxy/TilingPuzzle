@@ -3,6 +3,10 @@ This is a 2D polyomino tiling puzzle solver implemented in JavaScipt based on Da
 
 Demo page: [Tiling Puzzle](https://www.crabfishhh.com/tilingpuzzle)
 
+## How to play
+
+Just click `Browse` button and upload the file described as below. Then click `Solve` to show all the solutions(Some cases may cost long time to solve). 
+
 ## Screenshot
 
 ![screenshot1](./screenshot/1.png)
