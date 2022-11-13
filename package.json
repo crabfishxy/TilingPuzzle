@@ -22,7 +22,7 @@
     "terser-webpack-plugin": "^2.3.5",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "randomcolor": "^0.5.4"
